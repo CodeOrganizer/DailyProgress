@@ -1,0 +1,51 @@
+/*******************************************************************************************JAVA PRACTICE**********************************************************************************************/
+
+//Java Code:
+import java.lang.*;
+import java.util.*;
+
+class WelcomeMessage
+{
+	public static void main(String args[])
+	{
+		System.out.print("Enter your name: ");
+		Scanner s= new Scanner(System.in);
+		String name= s.nextLine();
+		System.out.println("Hello "+name+"!!!Welcome to Java.");
+
+		//Using hexadecimal converting to decimal:
+
+		s.useRadix(16);
+		int x=s.nextInt();
+		System.out.println(x);
+	}
+}
+
+/*****************************************************************************************DSA PRACTICE****************************************************************************************************/
+
+/*1. Two Sum:Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You can return the answer in any order.*/
+// Code Function:
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+    int* result=(int*)malloc(2*sizeof(int));
+    *returnSize=0;
+    for(int i=0;i<numsSize;i++){
+        //for(int j=0;j<numsSize && j!=i;j++){
+        for(int j=i+1;j<numsSize;j++){
+            if(nums[i]+nums[j]==target){
+                result[0]=i;
+                result[1]=j;
+                *returnSize=2;
+                return result;
+            }
+        }
+    }
+   
+    free(result);
+    return NULL;
+}
