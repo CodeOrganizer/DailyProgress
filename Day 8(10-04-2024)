@@ -1,0 +1,49 @@
+f=//**************************************************************************************JAVA******************************************************************************************************************
+//1. Increment and Decrement operator:
+//Code:
+class IncDecOp
+{
+    public static void main(String[] args)
+    {
+        int x=5,y;
+        y=++x;
+        System.out.println("x,y: "+x+","+y);
+        x--;
+        y=x++;
+        System.out.println("x,y: "+x+","+y);
+
+        char c=65;
+        c+=2;
+       // c=c+1;    possible lossy conversion error int to char
+        System.out.println(c);
+
+        float d=13.5f;
+        d--;
+        System.out.println(d);
+    }
+}
+
+//************************************************************************************************DSA*****************************************************************************************************
+//2. Parameter passing method:
+//code:
+#include <iostream>
+using namespace std;
+
+void swap(int &a,int &b)
+{
+    int temp;
+    temp=a;
+    a=b;
+    b=temp;
+}
+
+int main()
+{
+    int a=10,b=5;
+    /* cout<<"a,b: "<<a<<","<<b<<endl;
+    swap(a,b);
+    cout<<"a,b: "<<a<<","<<b<<endl; */
+    cout<<"a,b: "<<a<<","<<b<<endl;
+    swap(a,b);
+    cout<<"a,b: "<<a<<","<<b<<endl;
+}
