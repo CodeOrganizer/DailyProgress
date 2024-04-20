@@ -1,0 +1,140 @@
+//*******************************************************************************************************DSA**********************************************************************************************************
+//1. Structure as a parameter.
+//Code:
+#include<iostream>
+using namespace std;
+struct Rectangle
+{
+    int length;
+    int breadth;
+};
+void fun(struct Rectangle r1)
+{
+    cout<<"Call by value:"<<endl<<"Length: "<<++r1.length<<" Breadth: "<<r1.breadth<<endl;
+}
+void fun1(struct Rectangle &r1)
+{
+    cout<<"Call by references:"<<endl<<"Length: "<<++r1.length<<" Breadth: "<<r1.breadth<<endl;
+}
+void fun2(struct Rectangle *r1)
+{
+    cout<<"Call by adress:"<<endl<<"Length: "<<++r1->length<<" Breadth: "<<r1->breadth<<endl;
+}
+struct Rectangle *fun3()
+{
+    struct Rectangle *p=new Rectangle;
+    //p=(struct Rectangle *)malloc(sizeof(struct Rectangle));
+    p->length=15;
+    p->breadth=7;
+    return p;
+}
+int main()
+{
+    Rectangle r={10,5};
+    fun(r);
+    cout<<"Main:"<<endl<<"Length: "<<r.length<<" Breadth: "<<r.breadth<<endl;
+    
+    fun1(r);
+    cout<<"Main:"<<endl<<"Length: "<<r.length<<" Breadth: "<<r.breadth<<endl;
+    
+    fun2(&r);
+    cout<<"Main:"<<endl<<"Length: "<<r.length<<" Breadth: "<<r.breadth<<endl;
+    
+    struct Rectangle *ptr=fun3();
+    cout<<"length: "<<ptr->length<<endl<<"breadth: "<<ptr->breadth<<endl;
+    return 0;
+}
+//2. Modular programing using structurer and function & cinverting c code in c++ class
+//Code:
+//MODULAR PROGRAMING USING STRUCTURE & FUNCTION:
+#include<iostream>
+using namespace std;
+/* struct Rectangle
+{
+    int length;
+    int breadth;
+};
+void initialize(struct Rectangle *r,int l,int b)
+{
+    r->length=l;
+    r->breadth=b;
+}
+int area(struct Rectangle r)
+{
+    return r.length*r.breadth;
+}
+int peri(struct Rectangle r)
+{
+    return 2*(r.length+r.breadth);
+} */
+
+/* struct Rectangle
+{
+    int length;
+    int breadth;
+
+void initialize(int l,int b)
+{
+    length=l;
+    breadth=b;
+}
+int area()
+{
+    return length*breadth;
+}
+int peri()
+{
+    return 2*(length+breadth);
+}
+};
+
+
+int main()
+{
+    struct Rectangle r={0,0};
+    int l=0,b=0;
+    cout<<"Enter length & breadth"<<endl;
+    cin>>l>>b; */
+    /* initialize(&r,l,b);
+    cout<<"Area= "<<area(r)<<endl;
+    cout<<"Perimeter= "<<peri(r)<<endl; */
+
+   /*  r.initialize(l,b);
+    cout<<"Area= "<<r.area()<<endl;
+    cout<<"Perimeter= "<<r.peri()<<endl;
+} */
+
+
+// Class & Object Orientation
+class Rectangle
+{
+public:         //in class everthing is by default private, so we've to declear private 
+    int length;
+    int breadth;
+
+void initialize(int l,int b)
+{
+    length=l;
+    breadth=b;
+}
+int area()
+{
+    return length*breadth;
+}
+int peri()
+{
+    return 2*(length+breadth);
+}
+};
+
+
+int main()
+{
+    struct Rectangle r;//r={0,0};  like structure we can't directly initialize in class
+    int l=0,b=0;
+    cout<<"Enter length & breadth"<<endl;
+    cin>>l>>b;
+    r.initialize(l,b);
+    cout<<"Area= "<<r.area()<<endl;
+    cout<<"Perimeter= "<<r.peri()<<endl;
+}
